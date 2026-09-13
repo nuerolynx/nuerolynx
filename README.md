@@ -24,7 +24,21 @@ I write and troubleshoot PLC logic, discrete input and output sequences, relay c
 
 ### Security research and Flipper Zero
 
-I use authorized penetration testing and reverse engineering to understand devices, protocols, and where they fail. My Flipper Zero currently runs `Nuerolynx dev`, a custom firmware build I use for hardware and protocol experiments in my lab.
+I use authorized penetration testing and reverse engineering to understand devices, protocols, and where they fail.
+
+### Nuerolynx Flipper Zero firmware
+
+Nuerolynx Firmware is my custom Flipper Zero build based on Momentum Firmware. I made it because I wanted one dependable field and lab tool that fits the way I work. It keeps the broad protocol and application support of Momentum while giving me a more focused interface and clearer paths between tools for physical security, electronics, and system diagnostics.
+
+The firmware carries the Nuerolynx identity through the boot screen, update screen, menus, icons, and default asset pack. Its animated status trace advances when the display already redraws, which adds motion without a separate wake timer and limits the effect on battery life. Upgrade migration preserves settings, menu entries, and keybinds so a new build does not needlessly reset the device.
+
+My current development build adds the NLX Credential Suite. It provides one passive scan flow for NFC smart cards, Picopass and iCLASS, 125 kHz RFID, and iButton credentials. It can recognize cards that combine more than one technology, decode supported Wiegand formats, save inspection reports, and open a specialist tool when deeper authorized testing is needed. Normal scanning does not write, emulate, recover keys, or fuzz credentials. Those actions require a deliberate Authorized Lab acknowledgment.
+
+The build also includes the NLX Electrical Calculator for Ohm's law, voltage drop, wire loss, delivered voltage, run length, and conductor sizing. A GPIO logic analyzer helps trace digital signals, while a smart meter radio monitor helps observe compatible meter activity. These additions make the Flipper more useful for troubleshooting field wiring, inspecting credential systems, following signals, and learning how devices communicate.
+
+This firmware is for Flipper Zero owners who are comfortable maintaining custom firmware and want a practical lab and field toolkit. It is especially useful for physical security technicians, embedded developers, electronics troubleshooters, and curious builders working on equipment they own or have clear permission to assess. Anyone who wants the official Flipper Devices support path should remain on official firmware.
+
+Before loading it, users should back up the device and SD card. The current update package installs through qFlipper or Flipper Lab. The source preserves the licenses and credits from Momentum Firmware, Flipper Devices, and the individual application authors whose work it includes.
 
 ### Home lab
 
